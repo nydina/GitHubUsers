@@ -17,22 +17,31 @@ struct ContentView: View {
             VStack {
                 Button {
                     Task {
-                        user = try await getUser(username: usernameToSearch)}
-                    
+                        user = try await getUser(username: usernameToSearch)
+                    }
                 } label: {
                     Text("Search")
                 }
-                .searchable(text: $usernameToSearch, placement: .navigationBarDrawer(displayMode: .always))
-                Text("\(user.nodeID)")
-                AsyncImage(url: URL(string: user.avatarURL))
-                    .frame(width: 200, height: 200)
-                    .cornerRadius(20)
-                Text("Numeber of public repositories: \(user.publicRepo)")
+                Text("")
+                    .searchable(text: $usernameToSearch, placement: .navigationBarDrawer(displayMode: .always))
+                    .onSubmit(of: .search) {
+                        Task {
+                            user = try await getUser(username: usernameToSearch)}
+                    }
+                if user.login != "" {
+                    Text("\(user.nodeID)")
+                    AsyncImage(url: URL(string: user.avatarURL))
+                        .frame(width: 200, height: 200)
+                        .cornerRadius(20)
+                    Text("Number of public repositories: \(user.publicRepo)")
+                }
             }
-            
+            .navigationTitle("Find GitHub Users")
         }
+        
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
