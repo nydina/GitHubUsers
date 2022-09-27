@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var user = User(login: "", id: 0, nodeID: "", avatarURL: "", publicRepo: 0)
+    
+    @State private var usernameToSearch = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Button {
+                    Task {
+                        user = try await getUser(username: usernameToSearch)}
+                    
+                } label: {
+                    Text("Search")
+                }
+                .searchable(text: $usernameToSearch, placement: .navigationBarDrawer(displayMode: .always))
+                Text("\(user.nodeID)")
+                AsyncImage(url: URL(string: user.avatarURL))
+                    .frame(width: 200, height: 200)
+                    .cornerRadius(20)
+                Text("Numeber of public repositories: \(user.publicRepo)")
+            }
+            
         }
-        .padding()
     }
 }
 
