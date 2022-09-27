@@ -54,31 +54,51 @@ struct User: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+    
+    public func getUserProfile() async throws -> String {
+    guard let url = URL(string: "https://api.github.com/users/"+"\(login)")
+    else {
+    fatalError("Missing URL")
+    }
+    var urlRequest = URLRequest(url: url)
+    urlRequest.httpMethod = "GET"
+    let (data, response) = try await URLSession.shared.data(for: urlRequest)
+    guard (response as? HTTPURLResponse)?.statusCode == 200
+    else {
+    fatalError("Error while fetching data")
+    }
+    let decoded = try JSONDecoder().decode(User.self, from: data)
+    let user = decoded.login
+    return user
+    }
+
 }
+
 
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
-
+    
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true
     }
-
+    
     public var hashValue: Int {
         return 0
     }
-
+    
     public init() {}
-
+    
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
-
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()
     }
+    
 }
