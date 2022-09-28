@@ -62,12 +62,14 @@ struct UserDetail: View {
                     
                 
             }
+            Text(user.bio)
+                .padding()
         }
         }
 }
 
 struct UserDetail_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetail(user: User(login: "nydina", id: 0, nodeID: "", avatarURL: "https://avatars.githubusercontent.com/u/63366733?v=4", publicRepo: 8, name: "Ny Dina Razafindratsira", htmlURL: "https://github.com/nydina", followers: 1, following: 1))
+        UserDetail(user: User(login: "nydina", id: 0, nodeID: "", avatarURL: "https://avatars.githubusercontent.com/u/63366733?v=4", bio: "J'ai décidé de coder pendant le confinement et depuis j'apprends à coder. ", publicRepo: 8, name: "Ny Dina Razafindratsira", htmlURL: "https://github.com/nydina", followers: 1, following: 1))
     }
 }

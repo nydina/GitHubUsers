@@ -12,6 +12,7 @@ struct User: Identifiable, Decodable {
     let id: Int
     let nodeID: String
     let avatarURL: String
+    var bio: String
     var publicRepo: Int
     var name: String
     let htmlURL: String
@@ -22,6 +23,7 @@ struct User: Identifiable, Decodable {
         case login, id
         case nodeID = "node_id"
         case avatarURL = "avatar_url"
+        case bio
         case publicRepo = "public_repos"
         case name
         case htmlURL = "html_url"
