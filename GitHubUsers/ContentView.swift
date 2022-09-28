@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var user = User(login: "", id: 0, nodeID: "", avatarURL: "", bio: "", publicRepo: 0, name: "", htmlURL: "", followers: 0, following: 0)
+    @State var user = User(login: "", id: 0, nodeID: "", avatarURL: "", bio: "",twitterUsername: "", publicRepo: 0, name: "", htmlURL: "", followers: 0, following: 0)
     
     @State private var usernameToSearch = ""
     

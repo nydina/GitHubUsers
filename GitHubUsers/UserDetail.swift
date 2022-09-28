@@ -46,7 +46,8 @@ struct UserDetail: View {
             }
             HStack {
                 
-                Text("Message")
+                Link("Message", destination: URL(string: "https://twitter.com/\(user.twitterUsername ?? "")")!)
+                    
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.cyan)
@@ -58,7 +59,7 @@ struct UserDetail: View {
                         RoundedRectangle(cornerRadius: 30)
                             .stroke(.cyan, lineWidth: 1)
                     )
-                
+               
                 
                 
             }
@@ -73,6 +74,6 @@ struct UserDetail: View {
 
 struct UserDetail_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetail(user: User(login: "nydina", id: 0, nodeID: "", avatarURL: "https://avatars.githubusercontent.com/u/63366733?v=4", bio: "J'ai décidé de coder pendant le confinement et depuis j'apprends à coder. ", publicRepo: 8, name: "Ny Dina Razafindratsira", htmlURL: "https://github.com/nydina", followers: 1, following: 1))
+        UserDetail(user: User(login: "nydina", id: 0, nodeID: "", avatarURL: "https://avatars.githubusercontent.com/u/63366733?v=4", bio: "J'ai décidé de coder pendant le confinement et depuis j'apprends à coder. ",twitterUsername: "DinaSourira", publicRepo: 8, name: "Ny Dina Razafindratsira", htmlURL: "https://github.com/nydina", followers: 1, following: 1))
     }
 }
