@@ -21,7 +21,7 @@ struct UserDetail: View {
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(30)
                             .frame(width: 100, height: 100)
-                            
+                        
                     case .failure:
                         Image(systemName: "photo")
                     @unknown default:
@@ -45,7 +45,7 @@ struct UserDetail: View {
                 }
             }
             HStack {
-               
+                
                 Text("Message")
                     .foregroundColor(.white)
                     .padding()
@@ -55,17 +55,22 @@ struct UserDetail: View {
                     .foregroundColor(.cyan)
                     .padding()
                     .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(.cyan, lineWidth: 1)
-                        )
-
-                    
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(.cyan, lineWidth: 1)
+                    )
+                
+                
                 
             }
-            Text(user.bio)
-                .padding()
+            if user.bio == "" {
+                Text("")
+            } else {
+                Text(user.bio)
+                    .padding()
+                
+            }
         }
-        }
+    }
 }
 
 struct UserDetail_Previews: PreviewProvider {
