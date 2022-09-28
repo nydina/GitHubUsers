@@ -8,33 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var user = User(login: "", id: 0, nodeID: "", avatarURL: "", publicRepo: 0)
+    @State var user = User(login: "", id: 0, nodeID: "", avatarURL: "", publicRepo: 0, name: "", htmlURL: "", followers: 0, following: 0)
     
     @State private var usernameToSearch = ""
     
     var body: some View {
         NavigationView {
             VStack {
-                Button {
-                    Task {
-                        user = try await getUser(username: usernameToSearch)
-                    }
-                } label: {
-                    Text("Search")
+                if usernameToSearch == "" && user.login == usernameToSearch {
+                    Text("")
                 }
-                Text("")
-                    .searchable(text: $usernameToSearch, placement: .navigationBarDrawer(displayMode: .always))
-                    .onSubmit(of: .search) {
-                        Task {
-                            user = try await getUser(username: usernameToSearch)}
-                    }
+                
                 if user.login != "" {
-                    Text("\(user.nodeID)")
-                    AsyncImage(url: URL(string: user.avatarURL))
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(20)
-                    Text("Number of public repositories: \(user.publicRepo)")
+                    UserDetail(user: user)
                 }
+                Spacer()
+                
+                
+            }
+            .searchable(text: $usernameToSearch, placement: .navigationBarDrawer(displayMode: .always))
+            .onSubmit(of: .search) {
+                Task {
+                    user = try await getUser(username: usernameToSearch)}
             }
             .navigationTitle("Find GitHub Users")
         }

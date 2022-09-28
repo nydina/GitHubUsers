@@ -12,6 +12,7 @@
 		BB1C379B28E2F639009A0EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1C379A28E2F639009A0EE9 /* Assets.xcassets */; };
 		BB1C379E28E2F639009A0EE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1C379D28E2F639009A0EE9 /* Preview Assets.xcassets */; };
 		BB1C37A528E2F6E9009A0EE9 /* UserModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C37A428E2F6E9009A0EE9 /* UserModelData.swift */; };
+		BB1C37C928E346F6009A0EE9 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C37C828E346F6009A0EE9 /* UserDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		BB1C379A28E2F639009A0EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1C379D28E2F639009A0EE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB1C37A428E2F6E9009A0EE9 /* UserModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelData.swift; sourceTree = "<group>"; };
+		BB1C37C828E346F6009A0EE9 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				BB1C379628E2F638009A0EE9 /* GitHubUsersApp.swift */,
 				BB1C379828E2F638009A0EE9 /* ContentView.swift */,
 				BB1C37A428E2F6E9009A0EE9 /* UserModelData.swift */,
+				BB1C37C828E346F6009A0EE9 /* UserDetail.swift */,
 				BB1C379A28E2F639009A0EE9 /* Assets.xcassets */,
 				BB1C379C28E2F639009A0EE9 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1C379928E2F638009A0EE9 /* ContentView.swift in Sources */,
+				BB1C37C928E346F6009A0EE9 /* UserDetail.swift in Sources */,
 				BB1C379728E2F638009A0EE9 /* GitHubUsersApp.swift in Sources */,
 				BB1C37A528E2F6E9009A0EE9 /* UserModelData.swift in Sources */,
 			);

@@ -13,12 +13,19 @@ struct User: Identifiable, Decodable {
     let nodeID: String
     let avatarURL: String
     var publicRepo: Int
+    var name: String
+    let htmlURL: String
+    var followers: Int
+    var following: Int
 
     enum CodingKeys: String, CodingKey {
         case login, id
         case nodeID = "node_id"
         case avatarURL = "avatar_url"
         case publicRepo = "public_repos"
+        case name
+        case htmlURL = "html_url"
+        case followers, following
     }
 }
 
