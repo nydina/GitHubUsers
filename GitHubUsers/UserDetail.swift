@@ -62,13 +62,11 @@ struct UserDetail: View {
                 
                 
             }
-            if user.bio == "" {
-                Text("")
-            } else {
-                Text(user.bio)
+        
+                Text(user.bio ?? "")
                     .padding()
                 
-            }
+            
         }
     }
 }

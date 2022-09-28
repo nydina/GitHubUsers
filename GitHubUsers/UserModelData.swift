@@ -12,7 +12,7 @@ struct User: Identifiable, Decodable {
     let id: Int
     let nodeID: String
     let avatarURL: String
-    var bio: String
+    var bio: String?
     var publicRepo: Int
     var name: String
     let htmlURL: String
