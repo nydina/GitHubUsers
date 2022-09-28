@@ -32,7 +32,7 @@ struct ContentView: View {
                     user = try await getUser(username: usernameToSearch)}
             }
             .navigationTitle("Find GitHub Users")
-        }
+        }.accentColor(.cyan)
         
     }
 }
